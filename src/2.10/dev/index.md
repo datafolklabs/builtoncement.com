@@ -1,15 +1,9 @@
 ---
 title: Introduction
 type: guide
-version: "portland"
+version: "2.10"
 order: 2
 ---
-
-
-<p class="tip-warn">
-Portland is a complete fork of Cement 2, and will eventually become Cement 3. It is guaranteed to be broken! Please use Cement 2 in production until stable/3.0.0 is released.
-</p>
-
 
 ## What is Cement?
 
@@ -98,9 +92,9 @@ $ python setup.py install
 Ex: Hello World:
 
 ```python
-from cement import App
+from cement.core.foundation import CementApp
 
-with App('myapp') as app:
+with CementApp('myapp') as app:
     app.run()
     print('Hello World!')
 ```

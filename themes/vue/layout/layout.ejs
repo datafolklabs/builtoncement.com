@@ -91,15 +91,11 @@
           var match = window.location.pathname.match(/^\/(portland|\d)/)
           var version = match ? match[1] : 'portland'
           docsearch({
-            appId: 'IWIQDXVN35',
-            apiKey: 'c17b4a8a5177f762315bfedac1e187d4',
-            indexName: 'builtoncement.com',
+            apiKey: '90515634eca1fc3f03b6c47c7f101e2d',
+            indexName: 'cement',
             inputSelector: selector,
-            algoliaOptions: {
-                facetFilters: [
-                    "version:" + version
-                ]
-            }
+            algoliaOptions: { 'facetFilters': ["tags:" + version] },
+            debug: true
           })
         })
         </script>

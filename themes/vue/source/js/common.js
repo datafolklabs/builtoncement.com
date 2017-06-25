@@ -141,10 +141,10 @@
     var versionSelect = document.querySelector('.version-select')
     versionSelect && versionSelect.addEventListener('change', function (e) {
       var version = e.target.value
-      var section = window.location.pathname.match(/\/(portland|\d)\/(\w+?)\//)[2]
+      var section = window.location.pathname.match(/\/(portland|\d+\.\d+)\/(\w+?)\//)[2]
       if (version === 'SELF') return
       window.location.assign(
-        'http://builtoncement.com/' + version + '/' + section + '/'
+        '/' + version + '/' + section + '/'
       )
     })
   }

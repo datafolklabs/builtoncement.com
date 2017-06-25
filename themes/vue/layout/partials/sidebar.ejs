@@ -1,3 +1,4 @@
+
 <div class="sidebar">
     <ul class="main-menu">
         <%- partial('partials/main_menu', { context: 'sidebar' }) %>
@@ -5,12 +6,11 @@
     <div class="list">
         <h2>
             <%- type === 'api' ? 'API' : (type.charAt(0).toUpperCase() + type.slice(1)) %>
-            <% if (type !== 'cookbook') { %>
-                <select class="version-select">
-                    <option value="SELF" selected>portland/3.x</option>
-                    <option value="2.10">stable/2.10</option>
-                </select>
-            <% } %>
+            <select class="version-select">
+                <option value="portland" <% if (page.version === 'portland') { %>selected<% } %>>portland/3.x</option>
+                <option value="2.10" <% if (page.version === '2.10') { %>selected<% } %>>stable/2.10</option>
+            </select>
+            
         </h2>
         <%- partial('partials/toc', { type: type }) %>
     </div>
