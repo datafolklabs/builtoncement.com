@@ -13,27 +13,26 @@ The first commit to Git was on Dec 4, 2009.  Since then, the framework has seen 
 
 ## Core Features
 
-Cement core features include (but are not limited to):
+Core features include (but are not limited to):
 
 - Core pieces of the framework are customizable via handlers/interfaces
-- Handler system connects implementation classes with Interfaces
 - Extension handler interface to easily extend framework functionality
 - Config handler supports parsing multiple config files into one config
 - Argument handler parses command line arguments and merges with config
 - Log handler supports console and file logging
 - Plugin handler provides an interface to easily extend your application
+- Hook support adds a bit of magic to apps and also ties into framework
+- Handler system connects implementation classes with Interfaces
 - Output handler interface renders return dictionaries to console
 - Cache handler interface adds caching support for improved performance
 - Controller handler supports sub-commands, and nested controllers
-- Hook support adds a bit of magic to apps and also ties into framework
-- Zero external dependencies* (not including optional extensions)
-- 100% test coverage using `nose` and `coverage`
-- 100% PEP8 and style compliant using `flake8`
+- Zero external dependencies* of the core library
+- 100% test coverage using ``nose`` and ``coverage``
+- 100% PEP8 and style compliant using ``flake8``
 - Extensive Sphinx documentation
-- Tested on Python 3.5+
-- Does not support Python 2.x
+- Tested on Python 2.6, 2.7, 3.3, 3.4, 3.5
 
-<p class="tip-warn">Some optional extensions that are shipped with the mainline Cement sources do require external dependencies.  It is the responsibility of the application developer to include these dependencies along with their application, as Cement explicitly does not include them.</p>
+<p class="tip-warn">Note that argparse is required as an external dependency for Python < 2.7 and < 3.2.  Additionally, some optional extensions that are shipped with the mainline Cement sources do require external dependencies.  It is the responsibility of the application developer to include these dependencies along with their application if they intend to use any optional extensions that have external dependencies, as Cement explicitly does not include them.*</p>
 
 ## License
 
