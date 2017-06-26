@@ -29,7 +29,7 @@ Core features include (but are not limited to):
 - Zero external dependencies* of the core library
 - 100% test coverage using ``nose`` and ``coverage``
 - 100% PEP8 and style compliant using ``flake8``
-- Extensive Sphinx documentation
+- Extensive documentation
 - Tested on Python 2.6, 2.7, 3.3, 3.4, 3.5
 
 <p class="tip-warn">Note that argparse is required as an external dependency for Python < 2.7 and < 3.2.  Additionally, some optional extensions that are shipped with the mainline Cement sources do require external dependencies.  It is the responsibility of the application developer to include these dependencies along with their application if they intend to use any optional extensions that have external dependencies, as Cement explicitly does not include them.*</p>
