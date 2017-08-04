@@ -5,17 +5,17 @@ version: "2.10"
 order: 7
 ---
 
-Cement defines a logging interface called [ILog](/2.10/api/core/log.html), as well as the default [LoggingLogHandler](/2.10/api/ext/ext_logging.html) that implements the interface.   This handler is built on top of the [Logging](http://docs.python.org/library/logging.html) module which is included in the Python standard library.
+Cement defines a logging interface called [ILog](/{{ version }}/api/core/log.html), as well as the default [LoggingLogHandler](/2.10/api/ext/ext_logging.html) that implements the interface.   This handler is built on top of the [Logging](http://docs.python.org/library/logging.html) module which is included in the Python standard library.
 
 Please note that there may be other handler's that implement the ILog interface.  The documentation below only references usage based on the interface and not the full capabilities of the implementation.
 
 The following log handlers are included and maintained with Cement:
 
-- [LoggingLogHandler](/2.10/api/ext/ext_logging.html)
-- [ColorLogHandler](/2.10/api/ext/ext_colorlog.html)
+- [LoggingLogHandler](/{{ version }}/api/ext/ext_logging.html)
+- [ColorLogHandler](/{{ version }}/api/ext/ext_colorlog.html)
 
 
-Please reference the [ILog](/2.10/api/core/config.html) interface documentation for writing your own log handler.
+Please reference the [ILog](/{{ version }}/api/core/config.html) interface documentation for writing your own log handler.
 
 
 ## Logging Messages
@@ -190,7 +190,7 @@ Notice that the logging is a bit more verbose when logged to a file.
 
 ## Tips on Debugging
 
-Note: The following is specific to the default [LoggingLogHandler](/2.10/api/ext/ext_logging) only, and is not an implementation of the ILog interface.
+Note: The following is specific to the default [LoggingLogHandler](/{{ version }}/api/ext/ext_logging) only, and is not an implementation of the ILog interface.
 
 Logging to 'app.log.debug()' is pretty straight forward, however adding an additional parameter for the 'namespace' can greatly increase insight into where that log is happening.  The 'namespace' defaults to the application name which you will see in every log like this:
 
