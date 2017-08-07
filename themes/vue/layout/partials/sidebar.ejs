@@ -7,10 +7,10 @@
         <h2>
             <%- type === 'api' ? 'API' : (type.charAt(0).toUpperCase() + type.slice(1)) %>
             <select class="version-select">
-                <option value="portland" <% if (page.version === 'portland') { %>selected<% } %>>portland/3.x</option>
                 <option value="2.10" <% if (page.version === '2.10') { %>selected<% } %>>stable/2.10</option>
+                <option value="portland" <% if (page.version === 'portland') { %>selected<% } %>>portland/3.x</option>
             </select>
-            
+
         </h2>
         <%- partial('partials/toc', { type: type }) %>
     </div>

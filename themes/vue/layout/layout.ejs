@@ -43,14 +43,17 @@
         <link href='//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js' rel='stylesheet' type='text/css'>
 
         <!-- main page styles -->
-        <%- css(isIndex ? 'css/index' : 'css/page') %>
+        <%- css('css/page') %>
+        <%- isIndex ? css('css/index') : "" %>
 
         <!-- this needs to be loaded before guide's inline scripts -->
         <script src="<%- url_for("/js/vue.js") %>"></script>
         <script>window.PAGE_TYPE = "<%- page.type %>"</script>
     </head>
     <body class="<%- isIndex ? '' : 'docs' -%>">
-        <div id="mobile-bar" <%- isIndex ? 'class="top"' : '' %>>
+        <!-- <div id="mobile-bar" <%- isIndex ? 'class="top"' : '' %>> -->
+        <div id="mobile-bar" class="top">
+
             <a class="menu-button"></a>
             <a class="logo" href="/"></a>
         </div>
