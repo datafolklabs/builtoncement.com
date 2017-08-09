@@ -112,5 +112,3 @@ optional arguments:
 $ python myapp.py
 Hello World!
 ```
-
-
