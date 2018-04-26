@@ -327,3 +327,13 @@
     }
   }
 })()
+
+function currentVersion () {
+  // version select
+  var versionSelect = document.querySelector('.version-select')
+  if (versionSelect) {
+      return versionSelect.value;
+  } else {
+      return "2.10";
+  }
+}

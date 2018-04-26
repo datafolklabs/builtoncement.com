@@ -134,7 +134,7 @@ class MyApp(CementApp):
     class Meta:
         label = 'myapp'
         config_defaults = defaults
-        extensions = ['daemon', 'memcached', 'json', 'yaml']
+        extensions = ['memcached', 'json', 'yaml']
         hooks = [
             ('pre_close', my_cleanup_hook),
         ]

@@ -3,7 +3,7 @@
     <input type="text" id="search-query-<%- context %>" class="search-query st-default-search-input">
   </form>
 </li>
-<li><a href="<%- url_for("/2.10/dev/") %>" class="nav-link<%- page.path.match(/guide/) ? ' current' : '' %>">Developer Guide</a></li>
-<li><a href="<%- url_for("/2.10/api/") %>" class="nav-link<%- page.path.match(/api/) ? ' current' : '' %>">API</a></li>
-<li><a href="<%- url_for("/2.10/examples/") %>" class="nav-link<%- page.path.match(/examples/) ? ' current' : '' %>">Examples</a></li>
+<li><a href="javascript:location = '/' + currentVersion() + '/dev/';">Developer Guide</a></li>
+<li><a href="javascript:window.open('/' + currentVersion() + '/api/');">API Reference</a></li>
+<li><a href="javascript:location = '/' + currentVersion() + '/examples/';">Examples</a></li>
 <%- partial('partials/resources_dropdown') %>

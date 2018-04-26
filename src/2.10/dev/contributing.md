@@ -39,6 +39,8 @@ If you've found a bug, or would like to request a feature please create a detail
 
 ## Guidelines for Code Contributions
 
+If you are new to Cement, looking for something quick to fix, or just want an opportunity to contribute to the project... the best place to start is to review the issues labeled as `low-hanging-fruit` on [Github](https://github.com/datafolklabs/cement/labels/low-hanging-fruit).
+
 All contributors should attempt to abide by the following:
 
 - Contributors fork the project on GitHub onto their own account
