@@ -2,7 +2,7 @@
 title: Framework Overview
 type: guide
 version: "portland"
-order: 3
+order: 4
 ---
 
 This section is intended to give a brief overview of some of the most commonly used core features of Cement.  Please do not be discouraged if you don't "get it" right away.  Please also do not think, "is this it?".  This is not intended to be an exhaustive end-all-be-all coverage of every feature of the framework.
@@ -59,9 +59,9 @@ optional arguments:
 
 ## MetaMixin
 
-Cement uses `MetaMixin` classes everywhere, which allows the framework to define default functionality but also provides an easy mechanism for developers to override and customize.  
+Cement uses `MetaMixin` classes everywhere, which allows the framework to define default functionality but also provides an easy mechanism for developers to override and customize.
 
-This is implemented by declaring a `Meta` class, under your application and/or other Cement Handler classes.  
+This is implemented by declaring a `Meta` class, under your application and/or other Cement Handler classes.
 
 Ex: Defining Meta Classes
 
@@ -75,7 +75,7 @@ class MyApp(App):
 ```
 
 
-All Meta-options can also be overridden by any `**kwargs` that are passed to the parent class that is being instantiated. 
+All Meta-options can also be overridden by any `**kwargs` that are passed to the parent class that is being instantiated.
 
 Ex: Passing meta options via `**kwargs`:
 
@@ -117,21 +117,22 @@ Foo => bar
 ## Interfaces and Handlers
 
 
-All aspects of the framework are broken up into interfaces, and handlers. Interfaces define some functionality, and Handlers implement that functionality. Cement defines the following interfaces:
+All aspects of the framework are broken up into interfaces, and handlers. Interfaces **define** some functionality, while Handlers **implement** that functionality. Cement defines the following interfaces:
 
-- `extension` - Framework extensions loading
+- `extension` - Framework extension loading
 - `log` - Logging to console/file
 - `config` - Application Configuration defaults, overrides by file, etc
 - `mail` - Mail sending (smtp, etc)
 - `plugin` - Application plugin loading
-- `output` - Output rendering (JSON, Yaml, Mustache Templates, etc)
+- `template` - Rendering of template data (content, files, etc)
+- `output` - Rendering of data/content to end-user output (console text from template, JSON, Yaml, etc). Often uses an associated `template` handler on the backend.
 - `argument` - Command line argument parsing
 - `controller` - Command dispatch (sub-commands, sub-command arguments, etc)
 - `cache` - Key/Value data store (memcached, redis, etc)
 
-For example, the builtin configuration handler `ConfigParserConfigHandler`, implements the `config` interface.  Handlers are referred to by the interfaces they implement, such as `config.configparser`, `config.json`, `config.yaml`, etc.
+For example, the builtin configuration handler `ConfigParserConfigHandler`, implements the `config` interface.
 
-<p class="tip">Application developers can also define their own interfaces, allowing customization by plugins.</p>
+<p class="tip">Handlers are referred to by the interfaces they implement, such as `config.configparser`, `config.json`, `config.yaml`, etc. Application developers can also define their own interfaces, allowing customization by plugins.</p>
 
 
 Ex: Overriding Default Framework Handlers
@@ -145,7 +146,7 @@ class MyConfigHandler(ConfigParserConfigHandler):
     class Meta:
         label = 'my_config_handler'
 
-    # do something to subclass/re-implement 
+    # do something to subclass/re-implement
     # config handler here...
 
 
@@ -161,7 +162,7 @@ class MyApp(App):
 
 **Overriding Via Configuration Files**
 
-`MyApp` defines and/or defaults to builtin handlers for all of the above listed core handlers.  Whatever the application code defines is the default,  however you can also override via the configuration file(s) as in the example to the right.  
+`MyApp` defines and/or defaults to builtin handlers for all of the above listed core handlers.  Whatever the application code defines is the default,  however you can also override via the configuration file(s) as in the example to the right.
 
 For example, imagine that your default `mail_handler` is `smtp` for sending email via your local SMTP server.  This is a configuration that might very on a per-user/environment basis.  Via the application configuration, you could override this with an alternative mail handler like `mail_handler=some_other_mail_handler`
 
@@ -171,7 +172,7 @@ Ex: Overriding Via Configuration File
 ```
 [myapp]
 
-### override App.Meta.mail_handler 
+### override App.Meta.mail_handler
 mail_handler = my_mail_handler
 
 ```
@@ -186,7 +187,7 @@ Cement looks for configuration files in the most common places such as:
 - `/etc/myapp/myapp.conf`
 - `~/.myapp.conf`
 - `~/.myapp/config`
-- etc 
+- etc
 
 The list of configuration file paths can be customized via the meta option `App.Meta.config_files` as well as their extension (i.e. `.conf`) can also be easily modified with `App.Meta.config_extension`.
 
@@ -197,7 +198,7 @@ Additional support for the following file formats is provided via optional exten
 - Json
 - Yaml
 
-<p class="tip">Config handler's provide dropin replacements for the default `ConfigParserConfigHandler`, and are often based on it.  For example, the `JsonConfigHandler` and `YamlConfigHandler` hanlers do nothing more than support reading alternative file formats.  Accessing the config settings in the app is exactly the same.</p>
+<p class="tip">Config handler's provide dropin replacements for the default `ConfigParserConfigHandler`, and are often based on it.  For example, the `JsonConfigHandler` and `YamlConfigHandler` handlers do nothing more than support reading alternative file formats.  Accessing the config settings in the app is exactly the same.</p>
 
 All extensions and application plugins can support customization loaded from the application configuration file under the section `[interface.handler]`. For example, the `ColorLogHandler` extension reads it's configuration from `[log.colorlog]`.
 
@@ -235,7 +236,7 @@ Foo => not-bar
 
 **Alternative Configuration Handler Example**
 
-The follow is an example of overriding the default config handler with an alternative, drop-in replacement `YamlConfighandler`:
+The following is an example of overriding the default config handler with an alternative, drop-in replacement `YamlConfighandler`:
 
 Ex: Alternative Configuration Handler (Yaml):
 
@@ -257,6 +258,12 @@ myapp:
     foo: not-bar
 ```
 
+**Overriding Configuration Setting with Environment Variables**
+
+All configuration settings can be overridden by their associated environment variables.  For example `config['myapp']['foo']` is overridable by `MYAPP_FOO`.
+
+Note that all environment variable configurations are prefixed with the application label, therefore secondary namespaces such as `config['log.logging']['level']` would be overridable by `MYAPP_LOG_LOGGING_LEVEL`.
+
 
 ## Arguments
 
@@ -270,8 +277,8 @@ Ex: Simple Arguments Defined With Cement App
 from cement import App
 
 with App('myapp') as app:
-    app.args.add_argument('-f', '--foo', 
-                          help='notorous foo option', 
+    app.args.add_argument('-f', '--foo',
+                          help='notorous foo option',
                           dest='foo')
     app.run()
 
@@ -367,7 +374,7 @@ Logging is based on the standard [Logging](https://docs.python.org/3/library/log
   `FATAL`, `DEBUG`, etc).
 - `file` (*path*) - File path to log to.
 - `to_console` (*bool*) - Whether or not to log to console.
-- `rotate` (*bool*) - Whether or not to rotate the log file when it hits 
+- `rotate` (*bool*) - Whether or not to rotate the log file when it hits
   `max_bytes`
 - `max_bytes` (*int*) - Maximum file size in bytes before file gets rotated
 - `max_files` (*int*) - Maximum number of log files to keep after rotating
@@ -393,7 +400,7 @@ with App('myapp') as app:
     app.log.error('this is an error message')
     app.log.fatal('this is an fatal message')
     app.log.debug('this is an debug message')
-    
+
 
 ```
 
@@ -446,7 +453,7 @@ Ex: Standard Output via Print Statements
 from cement import App
 
 with App('myapp') as app:
-    print('About Run MyApp!')
+    print('About to run MyApp!')
     app.run()
 ```
 
@@ -654,7 +661,7 @@ To expose a function as a sub-command, you must decorate it with `@ex()`. It's u
 
 ## Framework Extensions
 
-Cement's Interfaces and Handlers system makes extending the framework easy, and limitless.  Cement ships dozens of extensions that either alter existing funtionality, or add to it.  For example, the default logging facility provides basic logging capabilities, however with a single line of code an application can instead use the `colorlog` extension to enable colorized console logging.  
+Cement's Interfaces and Handlers system makes extending the framework easy, and limitless.  Cement ships dozens of extensions that either alter existing funtionality, or add to it.  For example, the default logging facility provides basic logging capabilities, however with a single line of code an application can instead use the `colorlog` extension to enable colorized console logging.
 
 The example provides a quick look at using the `alarm` extension to handle application timeouts of long running operations
 
@@ -704,30 +711,32 @@ cement.core.exc.CaughtSignal: Caught signal 14
 
 Cement includes (but is not limited to) the following extensions:
 
-- `alarm` - Provides easy access to setting an application alarm to handle timing out operations
-- `argparse` - Provides `ArgparseArgumentHandler` and `ArgparseController` handlers built on Argparse
-- `colorlog` - Provides `ColorLogHandler` that produces colorized console logging
-- `configparser` - Provides `ConfigParserConfigHandler` handler for application configuration built on on ConfigParser
-- `daemon` - Provides daemonization, pidfile management, user/group context switching, etc
-- `handlebars` - Provides `HandlebarsOutputHandler` to render text output from Handlerbars templates
-- `jinja2` - Provides `Jinja2OutputHandler` to render text output from Jinja2 templates
-- `json` - Provides `JsonConfigHandler` and `JsonOutputHandler` to read JSON configuration files, and produce JSON structured output.
-- `logging` - Provides `LoggingLogHandler` for standard application logging
-- `memcached` - Providers `MemcachedCacheHandler` for caching built on Memcached
-- `mustache` - Provides `MustacheOutputHandler` to render text output from Mustache templates
-- `plugin` - Provides `CementPluginHandler` for application plugin support
-- `redis` - Provides `RedisCacheHandler` for caching built on Redis
-- `smtp` - Provides `SMTPMailHandler` for email messaging
-- `tabulate` - Provides `TabulateOutputHandler` for text output tabularized like MySQL, etc
-- `watchdog` - Provides cross-platform directory/file monitoring in order to handle filesystem events as they occur.
-- `yaml` - Providers `YamlConfigHandler` and `YamlOutputHandler` to read Yaml configuration files, and produce Yaml structured output.
+- **alarm** - Provides easy access to setting an application alarm to handle timing out operations
+- **argparse** - Provides `ArgparseArgumentHandler` and `ArgparseController` handlers built on Argparse
+- **colorlog** - Provides `ColorLogHandler` that produces colorized console logging
+- **configparser** - Provides `ConfigParserConfigHandler` handler for application configuration built on on ConfigParser
+- **daemon** - Provides daemonization, pidfile management, user/group context switching, etc
+- **handlebars** - Provides `HandlebarsOutputHandler` to render text output from Handlerbars templates
+- **jinja2** - Provides `Jinja2OutputHandler` to render text output from Jinja2 templates
+- **json** - Provides `JsonConfigHandler` and `JsonOutputHandler` to read JSON configuration files, and produce JSON structured output.
+- **logging** - Provides `LoggingLogHandler` for standard application logging
+- **memcached** - Providers `MemcachedCacheHandler` for caching built on Memcached
+- **mustache** - Provides `MustacheOutputHandler` to render text output from Mustache templates
+- **plugin** - Provides `CementPluginHandler` for application plugin support
+- **redis** - Provides `RedisCacheHandler` for caching built on Redis
+- **scrub** - Provides a easy mechanism for obfuscating sensitive
+information from command line output.
+- **smtp** - Provides `SMTPMailHandler` for email messaging
+- **tabulate** - Provides `TabulateOutputHandler` for text output tabularized like MySQL, etc
+- **watchdog** - Provides cross-platform directory/file monitoring in order to handle filesystem events as they occur.
+- **yaml** - Provides `YamlConfigHandler` and `YamlOutputHandler` to read Yaml configuration files, and produce Yaml structured output.
 
 
 ## Application Plugins
 
-Cement provides an interface that automatically handles the management, configuration, and loading of Application Plugins.  A Plugin is essentially the same as a Framework Extension, but is application specific where extensions are agnostic (can be used by any application).  
+Cement provides an interface that automatically handles the management, configuration, and loading of Application Plugins.  A Plugin is essentially the same as a Framework Extension, but is application specific where extensions are agnostic (can be used by any application).
 
-A plugin can be anything, and provide any kind of functionality from defining runtime hooks, to extending an applications capabilities by adding nested/embedded controllers.  the only thing that a plugin must provide is a `load()` function that is called when the plugin is imported.
+A plugin can be anything, and provide any kind of functionality from defining runtime hooks, to extending an applications capabilities by adding nested/embedded controllers.  The only thing that a plugin must provide is a `load()` function that is called when the plugin is imported.
 
 Ex: Basic Application
 
@@ -854,4 +863,3 @@ CLI Usage:
 $ python myapp.py
 Inside my_example_hook()
 ```
-

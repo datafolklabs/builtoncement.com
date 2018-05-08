@@ -33,9 +33,9 @@ Cement core features include (but are not limited to):
 - Controller handler supports sub-commands, and nested controllers
 - Hook support adds a bit of magic to apps and also ties into framework
 - Zero external dependencies* (not including optional extensions)
-- 100% test coverage using `nose` and `coverage`
+- 100% test coverage using `pytest` and `coverage`
 - 100% PEP8 and style compliant using `flake8`
-- Extensive Sphinx documentation
+- Extensive Developer Guide and API Reference Documentation
 - Tested on Python 3.5+
 - Does not support Python 2.x
 
@@ -72,52 +72,3 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ```
-
-## Installation
-
-Stable versions are available via PyPi:
-
-```
-$ pip install cement
-```
-
-Development versions are available via Github:
-
-```
-$ git clone git://github.com/datafolklabs/cement.git
-
-$ cd cement/
-
-$ python setup.py install
-```
-
-## Getting Started
-
-<p class="tip-warn">The developer guide assumes intermediate level knowledge of Python. If you are totally new to Python development, you might want to get more familiar with the language before jumping into a framework.</p>
-
-Ex: Hello World:
-
-```python
-from cement import App
-
-with App('myapp') as app:
-    app.run()
-    print('Hello World!')
-```
-
-CLI Usage:
-
-```
-$ python myapp.py --help
-usage: myapp [-h] [--debug] [--quiet]
-
-optional arguments:
-  -h, --help  show this help message and exit
-  --debug     toggle debug output
-  --quiet     suppress all output
-
-$ python myapp.py
-Hello World!
-```
-
-

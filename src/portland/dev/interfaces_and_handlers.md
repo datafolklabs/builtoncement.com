@@ -2,7 +2,7 @@
 title: Interfaces and Handlers
 type: guide
 version: "portland"
-order: 4
+order: 5
 ---
 
 Cement has a unique interface and handler system that is used to break up
@@ -73,7 +73,7 @@ class MyApp(CementApp):
         define_handlers = [MyInterface]
 
 
-Alternatively, if you need more control you might define a handler this 
+Alternatively, if you need more control you might define a handler this
 way:
 
 ```python
@@ -95,7 +95,7 @@ That said, what is required is an `IMeta` class that is used to interact
 with the interface.  At the very least, this must include a unique `label`
 to identify the interface.  This can also be considered the 'handler type'.
 For example, the `ILog` interface has a label of `log` and any handlers
-registered to that interface are stored in 
+registered to that interface are stored in
 `HandlerManager.__handlers__['log']`.
 
 Notice that we defined `Meta` and `my_var` as Interface Attributes.  This
@@ -125,9 +125,9 @@ class MyInterface(interface.Interface):
         validator = my_validator
 ```
 
-When `CementApp.handler.register()` is called to register a handler to an 
-interface, the validator is called and the handler object is passed to the 
-validator.  In the above example, we simply define what members we want to 
+When `CementApp.handler.register()` is called to register a handler to an
+interface, the validator is called and the handler object is passed to the
+validator.  In the above example, we simply define what members we want to
 validate for and then call `interface.validate()` which will raise
 `cement.core.exc.InterfaceError` if validation fails.  It is not
 necessary to use `interface.validate()` but it is useful and recommended.
@@ -186,8 +186,8 @@ with CementApp('myapp') as app:
 
 
 The above is a simple class that meets all the expectations of the interface.
-When calling `CementApp.handler.register()`, `MyHandler` is passed to the 
-validator (if defined in the interface) and if it passes validation will be 
+When calling `CementApp.handler.register()`, `MyHandler` is passed to the
+validator (if defined in the interface) and if it passes validation will be
 registered into `HandlerManager.__handlers__`.
 
 
@@ -202,7 +202,7 @@ with CementApp('myapp') as app:
     # Get a log handler called 'logging'
     lh = app.handler.get('log', 'logging')
 
-    # Instantiate the handler class, passing any keyword arguments that 
+    # Instantiate the handler class, passing any keyword arguments that
     # the handler supports.
     log = log_handler()
 
@@ -215,12 +215,12 @@ with CementApp('myapp') as app:
     # Check if an interface called 'output' is defined
     app.handler.defined('output')
 
-    # Check if the handler 'argparse' is registered to the 'argument' 
+    # Check if the handler 'argparse' is registered to the 'argument'
     # interface
     app.handler.registered('argument', 'argparse')
 ```
 
-It is important to note that handlers are stored with the app as 
+It is important to note that handlers are stored with the app as
 uninstantiated objects.  Meaning you must instantiate them after retrieval,
 and call `_setup(app)` when using handlers directly (as in the above
 example).
