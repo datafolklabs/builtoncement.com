@@ -34,6 +34,7 @@
     <script src="assets/vendor/backward/html5shiv.js"></script>
     <script src="assets/vendor/backward/respond.min.js"></script>
     <![endif]-->
+
 </head>
 
 <body>
@@ -50,12 +51,12 @@
         <!--header start-->
         <header class="l-header l-header_overlay">
 
-            <div class="l-navbar l-navbar_expand l-navbar_t-light js-navbar-sticky">
+            <div id='navbar' class="l-navbar l-navbar_expand l-navbar_t-dark-trans js-navbar-sticky">
                 <div class="container-fluid">
                     <nav class="menuzord js-primary-navigation" role="navigation" aria-label="Primary Navigation">
 
                         <!--logo start-->
-                        <a href="index.html" class="logo-brand">
+                        <a id='nav-logo' href="index.html" class="logo-brand">
                             <img class="retina" src="assets/img/logo.png" alt="Cement Framework" width=25%>
                         </a>
                         <!--logo end-->
@@ -377,6 +378,22 @@
     <script src="assets/vendor/wow/wow.min.js"></script>
     <script src="assets/js/scripts.min.js"></script>
     <!-- endinject -->
+
+    <script>
+        $(document).ready(function(){
+            $(window).scroll(function(){
+                var element = document.getElementById("navbar");
+  	            var scroll = $(window).scrollTop();
+            	if (scroll > 0) {
+                    element.classList.add("l-navbar_t-light-trans");
+                    element.classList.remove("l-navbar_t-dark-trans");
+            	} else{
+                    element.classList.remove("l-navbar_t-light-trans");
+                    element.classList.add("l-navbar_t-dark-trans");
+            	}
+            })
+        })
+    </script>
 </body>
 
 </html>
