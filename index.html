@@ -1,135 +1,382 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+    <meta name="author" content="Mosaddek">
 
-    <title>Cement CLI Application Framework for Python</title>
+    <!--favicon icon-->
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
 
-    <!-- Bootstrap core CSS -->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
-    <!-- Custom styles for this template -->
-    <link href="assets/css/navbar-fixed-top.css" rel="stylesheet">
+    <title>Cement Framework</title>
 
-    <!-- Just for debugging purposes. Don't actually copy this line! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <!--common style-->
+    <link href='http://fonts.googleapis.com/css?family=Abel|Source+Sans+Pro:400,300,300italic,400italic,600,600italic,700,700italic,900,900italic,200italic,200' rel='stylesheet' type='text/css'>
+
+    <!-- inject:css -->
+    <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/vendor/animate/animate.css">
+    <link rel="stylesheet" href="assets/vendor/elastic-slider/elastic.css">
+    <link rel="stylesheet" href="assets/vendor/iconmoon/linea-icon.css">
+    <link rel="stylesheet" href="assets/vendor/magnific-popup/magnific-popup.css">
+    <link rel="stylesheet" href="assets/vendor/owl-carousel/owl.carousel.css">
+    <link rel="stylesheet" href="assets/vendor/owl-carousel/owl.theme.css">
+    <link rel="stylesheet" href="assets/vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/shortcodes.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/default-theme.css">
+    <!-- endinject -->
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <script src="assets/vendor/backward/html5shiv.js"></script>
+    <script src="assets/vendor/backward/respond.min.js"></script>
     <![endif]-->
-  </head>
+</head>
 
-  <body>
+<body>
 
-    <!-- Fixed navbar -->
-    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Cement CLI Application Framework for Python</a>
+    <!--  preloader start -->
+    <div id="tb-preloader">
+        <div class="tb-preloader-wave"></div>
+    </div>
+    <!-- preloader end -->
+
+
+    <div class="wrapper">
+
+        <!--header start-->
+        <header class="l-header l-header_overlay">
+
+            <div class="l-navbar l-navbar_expand l-navbar_t-light js-navbar-sticky">
+                <div class="container-fluid">
+                    <nav class="menuzord js-primary-navigation" role="navigation" aria-label="Primary Navigation">
+
+                        <!--logo start-->
+                        <a href="index.html" class="logo-brand">
+                            <img class="retina" src="assets/img/logo.png" alt="Cement Framework" width=25%>
+                        </a>
+                        <!--logo end-->
+
+                        <!--mega menu start-->
+                        <ul class="menuzord-menu menuzord-right c-nav_s-standard">
+                            <li><a href="https://docs.builtoncement.com">Developer Guide</a></li>
+                            <li><a href="https://cement.readthedocs.io">API Reference</a></li>
+                            <li><a href="#">Resources</a>
+                                <ul class="dropdown">
+                                    <li style="padding: 10px;"><b>Installation</b></li>
+                                    <hr>
+                                    <li><a href="https://pypi.org/project/cement/" target="_blank">PyPi Packages</a>
+                                    <li><a href="https://github.com/datafolklabs/cement/" target="_blank">Source Code</a>
+                                    <hr>
+                                    <li style="padding: 10px;"><b>Getting Help</b></li>
+                                    <hr>
+                                    <li><a href="https://join.slack.com/t/cementframework/shared_invite/enQtMzU0OTc5MDQ4NDA0LWMwMzZiOTczZjM4ZjFiZDE3MDk4MzA5ZmYxNmZjNTk4NzUwMzcyN2VlMDc5NzIxYjQ1NzlmNzgyNDFjMWJmMWY" target="_blank">Slack Channel</a>
+                                    <li><a href="https://github.com/datafolklabs/cement/issues/" target="_blank">Issue Tracker</a>
+                                    <hr>
+                                    <li style="padding: 10px;"><b>Continuous Integration Testing</b></li>
+                                    <hr>
+                                    <li><a href="https://travis-ci.org/datafolklabs/cement/" target="_blank">Travis CI</a>
+                                    <hr>
+                                    <li style="padding: 10px;"><b>Recommendations</b></li>
+                                    <hr>
+                                    <li><a href="https://awesome-python.com/" target="_blank">Awesome Python</a>
+                                    <li><a href="https://pycoders.com/" target="_blank">Pycoders Weekly</a>
+                                    <li><a href="https://pythonbytes.fm/" target="_blank">Python Bytes Podcast</a>
+                                    <hr>
+
+                                </ul>
+                            </li>
+                        </ul>
+                        <!--mega menu end-->
+
+                    </nav>
+                </div>
+            </div>
+
+        </header>
+        <!--header end-->
+
+        <!--hero section-->
+        <div id="fullscreen-banner" class="full-banner vertical-align banner-app">
+            <div class="container-mid">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="banner-title">
+                                <h1 class="text-uppercase light-txt m-bot-10 inline-block">cement framework</h1>
+
+                                <h3 class="text-uppercase light-txt m-bot-30 inline-block">by data folk labs</h3>
+
+                                <div class="m-top-100 inline-block">
+                                    <a href="https://docs.builtoncement.com" class="btn btn-medium btn-theme-border-color wow fadeInLeft" target="_blank"> Get Started <i class="fa fa-code"></i></a>
+                                    <a href="https://github.com/datafolklabs/cement" class="btn btn-medium btn-theme-border-color wow fadeInRight" target="_blank"> Github <i class="fa fa-github"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!--
+            <div class="app-device">
+                <img class="wow fadeInUp" src="assets/img/app/banner_device.png" alt="" />
+            </div>
+        -->
         </div>
-        <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="http://github.com/datafolklabs/cement" target="github">Development</a></li>
-            <li><a href="http://builtoncement.com/2.2/" target="cement-doc">Documentation</a></li>
-            <li><a href="http://pypi.python.org/pypi/cement/" target="pypi">PyPi</a></li>
-            <li><a href="http://eepurl.com/bq_BV9" target="pypi">Mailing List</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
+        <!--hero section-->
+
+        <!--body content start-->
+        <section class="body-content">
+
+            <!--feature-->
+            <div class="page-content">
+                <div class="container">
+                    <div class="row">
+                        <!--feature border box start-->
+                        <div class="feature-box-grid">
+
+                            <div class="heading-title text-center">
+                                <h3 class="text-uppercase">A versatile foundation for command-line driven development </h3>
+                                <p class="half-txt p-top-30">From single-file scripts, to multi-tier applications; Cement offers the simplicity of a micro-framework, with the capabilities of a mega-framework.</p>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="featured-item border-box text-center">
+                                    <div class="icon">
+                                        <i class="icon-adjustments"></i>
+                                    </div>
+                                    <div class="title text-uppercase">
+                                        <h4>Flexible</h4>
+                                    </div>
+                                    <div class="desc">
+                                        The framework is customizable by a robust interface/handler system, and includes a feature-rich extension library.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="featured-item border-box text-center">
+                                    <div class="icon">
+                                        <i class=" icon-hotairballoon"></i>
+                                    </div>
+                                    <div class="title text-uppercase">
+                                        <h4>Liteweight</h4>
+                                    </div>
+                                    <div class="desc">
+                                        Core library does not rely on any external dependencies (optional extensions may have required dependencies).
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="featured-item border-box text-center">
+                                    <div class="icon">
+                                        <i class=" icon-lock"></i>
+                                    </div>
+                                    <div class="title text-uppercase">
+                                        <h4>reliable</h4>
+                                    </div>
+                                    <div class="desc">
+                                        Strict guidelines require every release to meet 100% unit test coverage, and PEP8 style guide compliance.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--feature border box end-->
+                    </div>
+                </div>
+            </div>
+            <!--feature-->
+            <hr/>
+
+
+            <!--feature-->
+            <div class="page-content gray-bg relative p-bot-0">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="responsive-img">
+                                <img src="assets/img/Cement-API-RTD.png" alt="" width="100%"/>
+                            </div>
+                        </div>
+                        <div class="col-md-6 ">
+                            <div class="heading-title">
+                                <h3 class="text-uppercase">
+                                    Extensive Documentation
+                                </h3>
+                                <br><br>
+                                <div class="featured-item feature-outline">
+                                    <div class="icon">
+                                        <i class=" icon-book"></i>
+                                    </div>
+                                    <div class="title text-uppercase">
+                                        <h4>Developer Guide</h4>
+                                    </div>
+                                    <div class="desc">
+                                        Provides practical, real-world examples and instruction on using the framework without the noise and complexity of the complete library reference.
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="featured-item feature-outline ">
+                                    <div class="icon ">
+                                        <i class=" icon-document"></i>
+                                    </div>
+                                    <div class="title text-uppercase">
+                                        <h4>API Reference</h4>
+                                    </div>
+                                    <div class="desc">
+                                        Searchable reference guide of every detail of the framework's interfaces, handlers, and extensions.
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!--feature-->
+
+            <!--feature-->
+            <div class="page-content ">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 ">
+                            <div class="heading-title-alt inline-block">
+                                <h3 class="text-uppercase">
+                                    20 minute beginner tutorial
+                                </h3>
+                            </div>
+                            <div class="">
+                                <p>Quickstart your introduction to Cement with a beginner tutorial on building a command-line based task management application.</p>
+
+                                <ul class="m-bot-30 circle-list">
+                                    <li>
+                                        Learn how to generate new projects with the Cement Developer Tools
+                                    </li>
+                                    <li>
+                                        Integrate a persistent storage database backend
+                                    </li>
+                                    <li>
+                                        Implement a CRUD-like controller to manage todo items
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                        <div class="embed-responsive- vdo-wrap- embed-responsive embed-responsive-16by9">
+                                <iframe class="embed-responsive-item"src="assets/video/beginner-tutorial.mp4" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--feature-->
+            <hr>
+            <!--clients-->
+            <div class="page-content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="heading-title text-center ">
+                                <h3 class="text-uppercase text-center">Proudly Sponsored By </h3>
+                            </div>
+                            <ul class="clients plus-box grid-2 ">
+                                <li>
+                                    <a href="https://datafolklabs.com" target="_blank">
+                                        <img src="assets/img/datafolklabs.png" alt="Clients" height="100%" style="opacity: 0.75; filter: alpha(opacity=75);">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.trueability.com" target="_blank">
+                                        <img src="assets/img/trueability.png" alt="Clients" height="100%" style="opacity: 0.75; filter: alpha(opacity=75);">
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--clients-->
+
+            <!--subscribe-->
+            <div class="subscribe-box gray-bg  page-content text-center">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2">
+                            <div class="subscribe-info">
+                                <h3 class="theme-color ">subscribe to our mailing list</h3>
+                                <span class=" ">Receive minimal email updates regarding Cement Framework releases, upcoming features, and other news. </span>
+                            </div>
+                            <div class="subscribe-form">
+                                <!-- Begin MailChimp Signup Form -->
+                                <!-- <link href="http://cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css"><br> -->
+
+                                <form action="http://datafolklabs.us7.list-manage.com/subscribe/post?u=444ce23fdf1c30e830f893b57&amp;id=7be3a6a31e" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="form-inline validate" target="_blank" novalidate="">
+                                    <input type="email" name="EMAIL" class="form-control email" placeholder="Enter your email address" required>
+                                    <button type="submit" class="btn btn-medium btn-dark-solid text-uppercase">
+                                        subscribe
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--subscribe-->
+
+
+
+
+        </section>
+        <!--body content end-->
+
+        <!--footer start -->
+        <footer id="footer" class="dark text-center short-pad footer-6">
+            <div class="container-">
+                <div class="social-link circle m-bot-50">
+                    <a href="https://github.com/datafolklabs/cement" target="_blank"><i class="fa fa-github"></i></a>
+                </div>
+                <div class="copyright-sub-title text-uppercase border-top">
+                    &copy; Copyright 2018 Data Folk Labs, LLC. All right reserved.
+                </div>
+            </div>
+        </footer>
+        <!--footer end-->
+
     </div>
 
-    <div class="container">
 
-      <!-- Main component for a primary marketing message or call to action -->
-      <div class="jumbotron">
-        <h1 style="font-size: 42px; line-height: 40px;">A Framework, for the CLI Ninja.</h1>
-        <p>
-        Building backend tools, and command line applications shouldn't be
-        a tedious task.  Cement provides a light-weight and fully featured
-        foundation to build anything from single file scripts to complex
-        and intricately designed applications.  Out of the box, your
-        application has built-in support for configuration files, command line
-        arguments, logging, daemonization, plugins, output rendered from
-        template (such as Mustache, or Genshi), caching, hooks,
-        signal handling, and so much more.
-        </p>
-      </div>
+    <!-- inject:js -->
+    <script src="assets/vendor/modernizr/modernizr.js"></script>
+    <script src="assets/vendor/jquery/jquery-1.10.2.min.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/vendor/bootstrap-validator/validator.min.js"></script>
+    <script src="assets/vendor/count-to/jquery.countTo.js"></script>
+    <script src="assets/vendor/breakpoint/breakpoint.js"></script>
+    <script src="assets/vendor/countdown/jquery.countdown.js"></script>
+    <script src="assets/vendor/easing/jquery.easing.1.3.js"></script>
+    <script src="assets/vendor/easy-pie-chart/jquery.easypiechart.min.js"></script>
+    <script src="assets/vendor/elasic-slider/jquery.eislideshow.js"></script>
+    <script src="assets/vendor/flex-slider/jquery.flexslider-min.js"></script>
+    <script src="assets/vendor/gmap/jquery.gmap.min.js"></script>
+    <script src="assets/vendor/images-loaded/imagesloaded.js"></script>
+    <script src="assets/vendor/isotope/jquery.isotope.js"></script>
+    <script src="assets/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script src="assets/vendor/mailchimp/jquery.ajaxchimp.min.js"></script>
+    <script src="assets/vendor/menuzord/menuzord.js"></script>
+    <script src="assets/vendor/nav/jquery.nav.js"></script>
+    <script src="assets/vendor/owl-carousel/owl.carousel.min.js"></script>
+    <script src="assets/vendor/parallax-js/parallax.min.js"></script>
+    <script src="assets/vendor/smooth/smooth.js"></script>
+    <script src="assets/vendor/sticky/jquery.sticky.min.js"></script>
+    <script src="assets/vendor/touchspin/touchspin.js"></script>
+    <script src="assets/vendor/typist/typist.js"></script>
+    <script src="assets/vendor/visible/visible.js"></script>
+    <script src="assets/vendor/wow/wow.min.js"></script>
+    <script src="assets/js/scripts.min.js"></script>
+    <!-- endinject -->
+</body>
 
-    </div> <!-- /container -->
-
-    <div class="container marketing">
-
-      <!-- Three columns of text below the carousel -->
-      <div class="row">
-        <div class="col-lg-4" align="center">
-          <!-- <img class="img-circle" data-src="assets/js/holder.js/140x140" alt="Generic placeholder image"> -->
-          <img class="img" src="assets/img/iconmonstr-github-10-icon-128.png" alt="Source Code" height="96px" width="96px">
-          <h2 align="center" style="font-size: 24px;">Code / Development</h2>
-          <p>
-            Stable versions of Cement are available from <a href="https://pypi.python.org/pypi/cement" target="pypi">PyPi</a>.
-            Report bugs, submit feature requests, and/or contribute code over
-            at <a href="http://github.com/datafolklabs/cement" target="github">GitHub</a>.
-          </p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4" align="center">
-          <img class="img" src="assets/img/iconmonstr-text-file-3-icon-128.png" alt="Documentation" height="96px" width="96px">
-          <h2 align="center" style="font-size: 24px;">Documentation</h2>
-          <p>
-            Documentation is available for the latest stable version of
-            <a href="http://builtoncement.com/2.2/" target="cement-doc">Cement 2.2.x</a>, the
-            previous stable version of <a href="https://cement.readthedocs.io/en/stable-2.0.x/" target="rtfd">Cement 2.0.x</a>, and the development version of <a href="https://cement.readthedocs.io/en/latest" target="rtfd">Cement 2.3.x</a>.
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4" align="center">
-          <img class="img" src="assets/img/iconmonstr-paper-plane-2-icon-128.png" alt="Help / Support" height="96px" width="96px">
-          <h2 align="center" style="font-size: 24px;">Help / Support</h2>
-          <p>
-            Core developers hang out regularly in <code>#cement</code> on Freenode.
-            You can also join our mailing list by emailing <code>cement@librelist.org</code>.
-          </p>
-        </div><!-- /.col-lg-4 -->
-      </div><!-- /.row -->
-
-      <hr>
-
-      <!-- FOOTER -->
-      <footer>
-        <p class="pull-right"><a href="#">Back to top</a></p>
-        <p>&copy; 2014 Data Folk Labs, LLC</p>
-      </footer>
-
-    </div><!-- /.container -->
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="assets/js/jquery-1.10.2.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script type="text/javascript">
-      var _gauges = _gauges || [];
-      (function() {
-        var t   = document.createElement('script');
-        t.type  = 'text/javascript';
-        t.async = true;
-        t.id    = 'gauges-tracker';
-        t.setAttribute('data-site-id', '54515903e32bb45c5a0003a6');
-        t.src = '//secure.gaug.es/track.js';
-        var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(t, s);
-      })();
-    </script>
-  </body>
 </html>
