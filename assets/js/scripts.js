@@ -180,7 +180,7 @@
         /*==============================================
          Portfolio filterable grid init
          ===============================================*/
-        var $portfolioGeneral = $(".portfolio:not(.portfolio-masonry)").isotope({
+        /*var $portfolioGeneral = $(".portfolio:not(.portfolio-masonry)").isotope({
             itemSelector: ".portfolio-item",
             layoutMode: "fitRows",
             filter: "*"
@@ -212,6 +212,26 @@
                 setTimeout(function() {
                     $portfolioMasonry.isotope("layout");
                 }, 400);
+            });
+        }*/
+
+        if (typeof imagesLoaded == "function") {
+
+            $(".portfolio:not(.portfolio-masonry)").imagesLoaded().progress(function(){
+                $(".portfolio:not(.portfolio-masonry)").isotope({
+                    itemSelector: ".portfolio-item",
+                    layoutMode: "fitRows",
+                    filter: "*"
+                });
+            });
+
+            $(".portfolio-masonry").imagesLoaded().progress(function(){
+                $(".portfolio-masonry").isotope({
+                    itemSelector: ".portfolio-item",
+                    resizesContainer: false,
+                    layoutMode: "masonry",
+                    filter: "*"
+                });
             });
         }
 

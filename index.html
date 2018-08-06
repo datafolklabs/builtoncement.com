@@ -51,7 +51,7 @@
         <!--header start-->
         <header class="l-header l-header_overlay">
 
-            <div id='navbar' class="l-navbar l-navbar_expand l-navbar_t-dark-trans js-navbar-sticky">
+            <div id='navbar' class="l-navbar l-navbar_expand l-navbar_t-light js-navbar-sticky">
                 <div class="container-fluid">
                     <nav class="menuzord js-primary-navigation" role="navigation" aria-label="Primary Navigation">
 
@@ -105,7 +105,7 @@
             <div class="container-mid">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-8">
+                        <div class="col-md-12">
                             <div class="banner-title">
                                 <h1 class="text-uppercase light-txt m-bot-10 inline-block">cement framework</h1>
 
@@ -201,6 +201,7 @@
                                 <img src="assets/img/Cement-API-RTD.png" alt="" width="100%"/>
                             </div>
                         </div>
+                        <br>
                         <div class="col-md-6 ">
                             <div class="heading-title">
                                 <h3 class="text-uppercase">
@@ -215,7 +216,7 @@
                                         <h4>Developer Guide</h4>
                                     </div>
                                     <div class="desc">
-                                        Provides practical, real-world examples and instruction on using the framework without the noise and complexity of the complete library reference.
+                                        The <a href="https://docs.builtoncement.com" target="_blank">Developer Guide</a> provides practical, real-world examples and instruction on using the framework without the noise and complexity of the complete library reference.
                                     </div>
                                 </div>
                                 <br>
@@ -227,7 +228,7 @@
                                         <h4>API Reference</h4>
                                     </div>
                                     <div class="desc">
-                                        Searchable reference guide of every detail of the framework's interfaces, handlers, and extensions.
+                                        The <a href="https://cement.readthedocs.io" target="_blank">API Reference</a> provides searchable reference guide of every detail of the framework's interfaces, handlers, and extensions.
                                     </div>
                                 </div>
                             </div>
@@ -250,7 +251,7 @@
                                 </h3>
                             </div>
                             <div class="">
-                                <p>Quickstart your introduction to Cement with a beginner tutorial on building a command-line based task management application.</p>
+                                <p>Quickstart your introduction to Cement with a <a href="https://docs.builtoncement.com/getting-started/beginner-tutorial" target="_blank">beginner tutorial</a> on building a command-line based task management application.</p>
 
                                 <ul class="m-bot-30 circle-list">
                                     <li>
@@ -266,15 +267,21 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                        <div class="embed-responsive- vdo-wrap- embed-responsive embed-responsive-16by9">
-                                <iframe class="embed-responsive-item"src="assets/video/beginner-tutorial.mp4" allowfullscreen></iframe>
+                            <div class="embed-responsive- vdo-wrap- embed-responsive embed-responsive-16by9">
+                                <iframe class="embed-responsive-item" src="assets/video/beginner-tutorial.mp4" allowfullscreen></iframe>
+                                <!-- <video controls>
+                                    <source src="assets/video/beginner-tutorial.mp4" type="video/mp4">
+                                </video> -->
+                                <!-- <a href="assets/video/beginner-tutorial.mp4" target="_blank"><img src="assets/img/beginner-tutorial.png" width="100%"></a> -->
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <!--feature-->
+
             <hr>
+
             <!--clients-->
             <div class="page-content">
                 <div class="container">
@@ -286,12 +293,12 @@
                             <ul class="clients plus-box grid-2 ">
                                 <li>
                                     <a href="https://datafolklabs.com" target="_blank">
-                                        <img src="assets/img/datafolklabs.png" alt="Clients" height="100%" style="opacity: 0.75; filter: alpha(opacity=75);">
+                                        <img src="assets/img/datafolklabs.png" alt="Clients" width="50%" style="opacity: 0.75; filter: alpha(opacity=75);">
                                     </a>
                                 </li>
                                 <li>
                                     <a href="https://www.trueability.com" target="_blank">
-                                        <img src="assets/img/trueability.png" alt="Clients" height="100%" style="opacity: 0.75; filter: alpha(opacity=75);">
+                                        <img src="assets/img/trueability.png" alt="Clients" width="50%" style="opacity: 0.75; filter: alpha(opacity=75);">
                                     </a>
                                 </li>
                             </ul>
@@ -308,7 +315,7 @@
                         <div class="col-md-8 col-md-offset-2">
                             <div class="subscribe-info">
                                 <h3 class="theme-color ">subscribe to our mailing list</h3>
-                                <span class=" ">Receive minimal email updates regarding Cement Framework releases, upcoming features, and other news. </span>
+                                <span class=" ">Receive low volume, low noise email updates about new releases, upcoming features, and other news. </span>
                             </div>
                             <div class="subscribe-form">
                                 <!-- Begin MailChimp Signup Form -->
@@ -328,8 +335,6 @@
             <!--subscribe-->
 
 
-
-
         </section>
         <!--body content end-->
 
@@ -338,9 +343,10 @@
             <div class="container-">
                 <div class="social-link circle m-bot-50">
                     <a href="https://github.com/datafolklabs/cement" target="_blank"><i class="fa fa-github"></i></a>
+                    <a href="mailto:team@datafolklabs.com"><i class="fa fa-envelope"></i></a>
                 </div>
                 <div class="copyright-sub-title text-uppercase border-top">
-                    &copy; Copyright 2018 Data Folk Labs, LLC. All right reserved.
+                    &copy; Copyright 2018 <a href="https://datafolklabs.com" target="_blank">Data Folk Labs, LLC</a>. All right reserved.
                 </div>
             </div>
         </footer>
@@ -376,10 +382,10 @@
     <script src="assets/vendor/typist/typist.js"></script>
     <script src="assets/vendor/visible/visible.js"></script>
     <script src="assets/vendor/wow/wow.min.js"></script>
-    <script src="assets/js/scripts.min.js"></script>
+    <script src="assets/js/scripts.js"></script>
     <!-- endinject -->
 
-    <script>
+    <!-- <script>
         $(document).ready(function(){
             $(window).scroll(function(){
                 var element = document.getElementById("navbar");
@@ -393,7 +399,7 @@
             	}
             })
         })
-    </script>
+    </script> -->
 </body>
 
 </html>
